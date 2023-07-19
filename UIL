@@ -6,7 +6,7 @@ local ThemeManager = {} do
 	ThemeManager.Library = nil
 	ThemeManager.BuiltInThemes = {
     ['Default'] 	= { 1, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"290342","AccentColor":"7710c2","BackgroundColor":"08010c","OutlineColor":"7f0353"}') },
-		['BBot'] 			= { 1, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"1e1e1e","AccentColor":"7e48a3","BackgroundColor":"232323","OutlineColor":"141414"}') },
+		['BBot'] 			= { 1, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"3f096e","AccentColor":"7e48a3","BackgroundColor":"99142f","OutlineColor":"141414"}') },
 		['Fatality']		= { 2, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"1e1842","AccentColor":"c50754","BackgroundColor":"191335","OutlineColor":"3c355d"}') },
 		['Jester'] 			= { 3, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"242424","AccentColor":"db4467","BackgroundColor":"1c1c1c","OutlineColor":"373737"}') },
 		['Mint'] 			= { 4, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"242424","AccentColor":"3db488","BackgroundColor":"1c1c1c","OutlineColor":"373737"}') },
@@ -47,16 +47,16 @@ local ThemeManager = {} do
 	end
 
 	function ThemeManager:LoadDefault()		
-		local theme = 'Default'
+		local theme = 'BBot'
 		local content = isfile(self.Folder .. '/themes/default.txt') and readfile(self.Folder .. '/themes/default.txt')
 
-		local isDefault = true
+		local isBBot = true
 		if content then
 			if self.BuiltInThemes[content] then
 				theme = content
 			elseif self:GetCustomTheme(content) then
 				theme = content
-				isDefault = false;
+				isBBot = false;
 			end
 		elseif self.BuiltInThemes[self.DefaultTheme] then
 		 	theme = self.DefaultTheme
